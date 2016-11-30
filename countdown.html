@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+body
+{
+color:black;
+margin:0;
+background-color:white;
+font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+div#timerContainer
+{
+background-color:#333;
+margin:50px;
+padding:30px 0;
+text-align:center;
+border-radius:30px;
+}
+
+div#timerBar
+{
+width:100%;
+background-color:#ddd;
+margin:0;
+height:4em;
+padding:22px 0;
+position:absolute;
+top:240px;
+z-index:10;
+opacity:0.4;
+border:3px black solid;
+border-left:none;
+border-right:none;
+}
+
+div#timerContainer div
+{
+	display:inline-block;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-weight:normal;
+	margin:0 0 10px 0;
+}
+
+div#columnsContainer
+{
+	width:800px;
+	margin:0 auto;
+	text-align:center;
+}
+
+div.columnPair
+{
+	width:190px;
+	display:inline-block;
+}
+
+div#columnsContainer div.columnPair div
+{
+	position:relative;
+	top:0px;
+	display:inline-block;
+	color:white;
+	background-color:black;
+	width:70px;
+	max-width:80px;
+}
+
+div.columnPair div span
+{
+	display:inline-block;
+	width:40px;
+	margin:22px 5px;
+	font-size:4em;
+}
+
+div.column span
+{
+font-size:3em;
+padding:10px;
+width:57px;
+display:block;
+background-color:#555;
+background-image: -moz-linear-gradient(bottom, rgb(150,150,150) 2%, rgb(255,255,255) 50%, rgb(150,150,150) 88%);
+border-radius:20px;
+border:3px black solid;
+color:black;
+font-weight:bold;
+}
+
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+var positions=new Array(10);
+positions[0]=240;
+
+positions[1]=120;
+positions[2]=0;
+positions[3]=-120;
+
+positions[4]=-240;
+positions[5]=-360;
+positions[6]=-480;
+
+positions[7]=-600;
+positions[8]=-720;
+positions[9]=-840;
+
+$(document).ready(function(){
+	window.setInterval(countdownTick,1000);
+	
+	//$('#timerBar')
+});
+
+function countdownTick()
+{
+	var arrival = new Date(2017,1,1,14,10,0) - new Date();
+	arrival = Math.round(arrival/1000);
+	//console.log(arrival);
+	var days = Math.floor(arrival/86400);
+	arrival = arrival - (days*86400);
+	var hours = Math.floor(arrival/3600);
+	arrival = arrival - (hours*3600);
+	var minutes = Math.floor(arrival/60);
+	arrival = arrival - (minutes*60);
+	var seconds = arrival;
+	
+	var secTens = Math.floor(seconds/10);
+	var secUnits = seconds % 10; 
+	var minTens = Math.floor(minutes/10);
+	var minUnits = minutes % 10; 
+	var hourTens = Math.floor(hours/10);
+	var hourUnits = hours % 10; 
+	var dayTens = Math.floor(days/10);
+	var dayUnits = days % 10;
+	
+	$('#secTens').css('top',positions[secTens]+'px');
+	$('#secUnits').css('top',positions[secUnits]+'px');
+	$('#minTens').css('top',positions[minTens]+'px');
+	$('#minUnits').css('top',positions[minUnits]+'px');
+	$('#hourTens').css('top',positions[hourTens]+'px');
+	$('#hourUnits').css('top',positions[hourUnits]+'px');
+	$('#dayTens').css('top',positions[dayTens]+'px');
+	$('#dayUnits').css('top',positions[dayUnits]+'px');
+}
+
+function checkTime(i)
+{
+if (i<10)
+  {
+  i="0" + i;
+  }
+return i;
+}
+</script>
+<title>A countdown to a very important event!</title>
+</head>
+<body>
+	<div id="timerBar">&nbsp;</div>
+	<div id="columnsContainer">
+		<div class="columnPair">
+			<div id="dayTens"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+			<div id="dayUnits"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+		</div>
+		<div class="columnPair">
+			<div id="hourTens"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+			<div id="hourUnits"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+		</div>
+		<div class="columnPair">
+			<div id="minTens"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+			<div id="minUnits"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+		</div>
+		<div class="columnPair">
+			<div id="secTens"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+			<div id="secUnits"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+		</div>
+	</div>
+</body>
+</html>
