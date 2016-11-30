@@ -138,11 +138,11 @@ function countdownTick()
 	var dayTens = Math.floor(days/10);
 	var dayUnits = days % 10;
 	
-	$('#secTens').css('top',positions[secTens]+'px');
+	$('#secTens').css('top',(positions[secTens]-480)+'px');
 	$('#secUnits').css('top',positions[secUnits]+'px');
-	$('#minTens').css('top',positions[minTens]+'px');
+	$('#minTens').css('top',(positions[minTens]-480)+'px');
 	$('#minUnits').css('top',positions[minUnits]+'px');
-	$('#hourTens').css('top',positions[hourTens]+'px');
+	$('#hourTens').css('top',(positions[hourTens]-840)+'px');
 	$('#hourUnits').css('top',positions[hourUnits]+'px');
 	$('#dayTens').css('top',positions[dayTens]+'px');
 	$('#dayUnits').css('top',positions[dayUnits]+'px');
@@ -167,15 +167,15 @@ return i;
 			<div id="dayUnits"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
 		</div>
 		<div class="columnPair">
-			<div id="hourTens"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+			<div id="hourTens"><span>0</span><span>1</span><span>2</span></div>
 			<div id="hourUnits"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
 		</div>
 		<div class="columnPair">
-			<div id="minTens"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+			<div id="minTens"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
 			<div id="minUnits"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
 		</div>
 		<div class="columnPair">
-			<div id="secTens"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+			<div id="secTens"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
 			<div id="secUnits"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
 		</div>
 	</div>
