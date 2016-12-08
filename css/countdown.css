@@ -1,0 +1,76 @@
+body
+{
+  color:black;
+  margin:0;
+  background-color:white;
+  font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+div#timerContainer
+{
+  background-color:#333;
+  margin:50px;
+  padding:30px 0;
+  text-align:center;
+  border-radius:30px;
+}
+
+div#timerBar
+{
+  width:100%;
+  background-color:#ddd;
+  margin:0;
+  padding:0;
+  position:absolute;
+  top:240px; /* This value needs to be equal to the offset in the position calculation. */
+  z-index:10;
+  opacity:0.4;
+  /* The combined height and border thickness need to be equal to the height of the span containing each digit. 120px by default. */
+  height:114px;
+  border:3px black solid;
+  border-left:none;
+  border-right:none;
+}
+
+div#timerContainer div
+{
+	display:inline-block;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-weight:normal;
+	margin:0 0 10px 0;
+}
+
+div#columnsContainer
+{
+	width:800px;
+	margin:0 auto;
+	text-align:center;
+}
+
+div.columnPair
+{
+	width:190px;
+	display:inline-block;
+}
+
+div#columnsContainer div.columnPair div
+{
+	position:relative;
+	top:0px;
+	display:inline-block;
+	color:white;
+	background-color:black;
+	width:70px;
+	max-width:80px;
+}
+
+div.columnPair div span
+{
+	display:inline-block;
+	width:40px;
+	margin:22px 5px;
+	font-size:64px;
+}
