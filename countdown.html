@@ -27,7 +27,7 @@ div#timerBar
   height:4em;
   padding:22px 0;
   position:absolute;
-  top:240px;
+  top:240px; /* This value needs to be equal to the offset in the position calculation. */
   z-index:10;
   opacity:0.4;
   border:3px black solid;
@@ -81,20 +81,14 @@ div.columnPair div span
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
+var barposition = 240;
+var barheight = 120;
 var positions=new Array(10);
-positions[0]=240;
 
-positions[1]=120;
-positions[2]=0;
-positions[3]=-120;
-
-positions[4]=-240;
-positions[5]=-360;
-positions[6]=-480;
-
-positions[7]=-600;
-positions[8]=-720;
-positions[9]=-840;
+// Calculate the positions to move digits into based on the position of the time bar.
+for(i=0;i<10;i++){
+  positions[i] = (-barheight*i)+barposition;
+}
 
 $(document).ready(function(){
 	window.setInterval(countdownTick,1000);
