@@ -82,8 +82,10 @@ div.columnPair div span
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
+var ticktime = 1000;
 var barposition = 240;
 var barheight = 120;
+var enddate = new Date(2017,1,2,14,10,0);
 var positions=new Array(10);
 
 // Calculate the positions to move digits into based on the position of the time bar.
@@ -91,41 +93,38 @@ for(i=0;i<10;i++){
   positions[i] = (-barheight*i)+barposition;
 }
 
-$(document).ready(function(){
-	window.setInterval(countdownTick,1000);
-});
+/* Countdown object definition */
+function Countdown(enddate)
+{
+  this.enddate = enddate;
+  this.startdate = new Date();
+  this.currentdiff = this.enddate - this.startdate;
+  // We calculate days independently of the date object, so we can get the number of days, rather than the number of the day.
+  this.daysToArrival = function(){return Math.floor((Math.round(this.currentdiff/1000))/86400)};
+  this.hoursToArrival = function(){return new Date(this.currentdiff).getHours()};
+  this.minutesToArrival = function(){return new Date(this.currentdiff).getMinutes()};
+  this.secondsToArrival = function(){return new Date(this.currentdiff).getSeconds()};
+}
+/* End Countdown object definition. */
 
 function countdownTick()
-{
-	var arrival = new Date(2017,1,2,14,10,0) - new Date();
-	arrival = Math.round(arrival/1000);
-	var days = Math.floor(arrival/86400);
-	arrival = arrival - (days*86400);
-	var hours = Math.floor(arrival/3600);
-	arrival = arrival - (hours*3600);
-	var minutes = Math.floor(arrival/60);
-	arrival = arrival - (minutes*60);
-	var seconds = arrival;
-	
-	var secTens = Math.floor(seconds/10);
-	var secUnits = seconds % 10; 
-	var minTens = Math.floor(minutes/10);
-	var minUnits = minutes % 10; 
-	var hourTens = Math.floor(hours/10);
-	var hourUnits = hours % 10; 
-	var dayTens = Math.floor(days/10);
-	var dayUnits = days % 10;
-	
-	$('#secTens').animate({top:((positions[secTens]-480)+'px')},500);
-	$('#secUnits').animate({top:(positions[secUnits]+'px')},500);
-	$('#minTens').animate({top:((positions[minTens]-480)+'px')},500);
-	$('#minUnits').animate({top:(positions[minUnits]+'px')},500);
-	$('#hourTens').animate({top:((positions[hourTens]-840)+'px')},500);
-	$('#hourUnits').animate({top:(positions[hourUnits]+'px')},500);
-	$('#dayTens').animate({top:(positions[dayTens]+'px')},500);
-	$('#dayUnits').animate({top:(positions[dayUnits]+'px')},500);
+{		
+	$('#secTens').animate({top:((positions[Math.floor(window.countdown.secondsToArrival()/10)]-480)+'px')},500);
+	$('#secUnits').animate({top:(positions[window.countdown.secondsToArrival() % 10]+'px')},500);
+	$('#minTens').animate({top:((positions[Math.floor(window.countdown.minutesToArrival()/10)]-480)+'px')},500);
+	$('#minUnits').animate({top:(positions[window.countdown.minutesToArrival() % 10]+'px')},500);
+	$('#hourTens').animate({top:((positions[Math.floor(window.countdown.hoursToArrival()/10)]-840)+'px')},500);
+	$('#hourUnits').animate({top:(positions[window.countdown.hoursToArrival() % 10]+'px')},500);
+	$('#dayTens').animate({top:(positions[Math.floor(window.countdown.daysToArrival()/10)]+'px')},500);
+	$('#dayUnits').animate({top:(positions[window.countdown.daysToArrival() % 10]+'px')},500);
+  
+  window.countdown.currentdiff -= ticktime;
 }
 
+$(document).ready(function(){
+  window.countdown = new Countdown(enddate);
+	window.setInterval(countdownTick,ticktime);
+});
 </script>
 <title>A countdown to a very important event!</title>
 </head>
