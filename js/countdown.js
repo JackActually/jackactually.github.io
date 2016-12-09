@@ -14,7 +14,9 @@ function Countdown(enddate)
 {
   this.enddate = enddate;
   this.startdate = new Date();
-  this.currentdiff = this.enddate - this.startdate;
+  if(this.enddate > this.startdate){this.currentdiff = this.enddate - this.startdate;}
+  else{this.currentdiff = 0;}
+  this.pastDate = function(){return (this.enddate < new Date())};
   // We calculate days independently of the date object, so we can get the number of days, rather than the number of the day.
   this.daysToArrival = function(){return Math.floor((Math.round(this.currentdiff/1000))/86400)};
   this.hoursToArrival = function(){return new Date(this.currentdiff).getHours()};
@@ -33,8 +35,12 @@ function countdownTick()
 	$('#hourUnits').animate({top:(positions[window.countdown.hoursToArrival() % 10]+'px')},500);
 	$('#dayTens').animate({top:(positions[Math.floor(window.countdown.daysToArrival()/10)]+'px')},500);
 	$('#dayUnits').animate({top:(positions[window.countdown.daysToArrival() % 10]+'px')},500);
-  
-  window.countdown.currentdiff -= ticktime;
+  if((window.countdown.currentdiff - ticktime) > 0){
+    window.countdown.currentdiff -= ticktime;
+  }
+  else{
+    window.countdown.currentdiff = 0;
+  }
 }
 
 $(document).ready(function(){
