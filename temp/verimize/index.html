@@ -21,7 +21,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#v-navbar-collapse-" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#v-navbar-collapse" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -31,7 +31,7 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="v-navbar-collapse-">
+    <div class="collapse navbar-collapse" id="v-navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#home">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="#services">Services</a></li>
@@ -66,12 +66,12 @@
   </div>
   <div id="about" class="about">
     <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 headline">
+    <div class="about-row hide-background">
+      <div class="about-header headline">
           <h1>The marketing technology landscape is a complex and interconnected web. With such a sophisticated network, it can be difficult to track the efficiency of each individual program.</h1>
       </div>
     </div>
-    <div class="row">
+    <div class="about-row hide-background reverse">
         <div class="about-header body-text">
             <h1>How We Do It</h1>
             <p>We have created a first of its kind MA Verification Software (MAVS), designed to help marketers and CFOs validate and measure the true value of their ad-tech and marketing automation tools. We run daily tests, measuring and comparing the performance of your MA activities, giving you a crystal-clear view of your ad-tech investment status.</p>
@@ -127,7 +127,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-5 col-sm-offset-1">
+        <div class="form-container">
           <form>
             <input class="form-control input-lg" placeholder="Name" type="text" />
             <input class="form-control input-lg" placeholder="Email" type="email" />
@@ -135,8 +135,8 @@
             <button type="submit" class="btn btn-default btn-lg btn-block">Connect</button>
           </form>
         </div>
-        <div class="col-sm-5">
-          <img class="img-responsive" src="img/map-placeholder.png" />
+        <div class="map-container">
+          <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Verimize&key=AIzaSyBqtvXMNhJpmHbVsm0iF4U2cLj8b1WdBro" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -146,28 +146,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      $("#main-nav ul li a[href^='#']").on('click', function(e) {
-
-       // prevent default anchor click behavior
-       e.preventDefault();
-
-       // store hash
-       var hash = this.hash;
-
-       // animate
-       $('html, body').animate({
-           scrollTop: $(hash).offset().top
-         }, 300, function(){
-
-           // when done, add hash to url
-           // (default click behaviour)
-           window.location.hash = hash;
-         });
-
-      });
-      $('body').scrollspy({ target: '#main-nav' });
-      $('#attribution-popover').popover();
-    </script>
+    <script src="js/scripts.js"></script>
   </body>
 </html>
