@@ -6025,7 +6025,7 @@ button.close {
 .contact {
   background-color: #f6f5fa;
   text-align: center;
-  padding-bottom: 100px;
+  padding-bottom: 30px;
   color: #2a2c39; }
   .contact h1 {
     margin-top: 0;
@@ -6064,11 +6064,13 @@ button.close {
       width: 100%;
       height: 300px; }
   @media (min-width: 768px) {
-    .contact .body-text {
-      padding-top: 100px;
-      margin-bottom: 50px; }
-    .contact .map-container {
-      margin-top: 0; } }
+    .contact {
+      padding-bottom: 100px; }
+      .contact .body-text {
+        padding-top: 100px;
+        margin-bottom: 50px; }
+      .contact .map-container {
+        margin-top: 0; } }
 
 body {
   position: relative; }
