@@ -5894,8 +5894,10 @@ button.close {
     .about {
       padding-top: 200px;
       padding-bottom: 0; }
-      .about .headline h1 {
-        margin-bottom: 700px; } }
+      .about .about-row.overview {
+        margin-bottom: 700px; }
+      .about .about-header {
+        text-align: center; } }
   .about .about-row {
     margin-left: -15px;
     margin-right: -15px;
@@ -5915,7 +5917,6 @@ button.close {
       min-height: 1px;
       padding-left: 15px;
       padding-right: 15px;
-      text-align: center;
       margin-bottom: 20px; }
       @media (min-width: 992px) {
         .about .about-row .about-header {
@@ -5924,6 +5925,8 @@ button.close {
       @media (min-width: 992px) {
         .about .about-row .about-header {
           margin-left: 8.33333%; } }
+      .about .about-row .about-header h1 {
+        text-align: center; }
     .about .about-row .image-container {
       position: relative;
       min-height: 1px;
@@ -5974,8 +5977,6 @@ button.close {
         margin-bottom: 110px;
         padding-top: 80px;
         padding-bottom: 80px; }
-        .about .about-row .about-header {
-          margin-bottom: 100px; }
         .about .about-row .image-container {
           text-align: right; }
           .about .about-row .image-container img {
@@ -6012,7 +6013,7 @@ button.close {
   color: #2a2c39; }
   @media (min-width: 992px) {
     .services {
-      padding: 200px 0; }
+      padding: 100px 0; }
       .services .body-text h2 {
         margin: 80px 0 60px; } }
   .services .body-text {
@@ -6076,7 +6077,7 @@ body {
   position: relative; }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-weight: 300; }
 
 p {
@@ -6107,5 +6108,22 @@ div.dark-text {
 @media (min-width: 480px) {
   p {
     text-align: inherit; } }
+
+.link-unstyled, .link-unstyled:visited, .link-unstyled:hover, .link-unstyled:active, .link-unstyled:focus, .link-unstyled:active:hover {
+  font-style: inherit;
+  color: inherit;
+  background-color: transparent;
+  font-size: inherit;
+  text-decoration: none;
+  font-variant: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  border-radius: inherit;
+  border: inherit;
+  outline: inherit;
+  box-shadow: inherit;
+  padding: inherit;
+  vertical-align: inherit; }
 
 /*# sourceMappingURL=style.css.map */
