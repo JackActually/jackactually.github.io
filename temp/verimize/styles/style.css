@@ -5855,7 +5855,7 @@ button.close {
     margin-right: 40px; } }
 
 .home {
-  background-image: url("/assets/img/skyline.jpg");
+  background-image: url("../assets/img/skyline.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
@@ -5885,7 +5885,7 @@ button.close {
 /* TODO Improve this. */
 .about {
   padding-bottom: 20px;
-  background-image: url("/assets/img/data-points-graphic-small.jpg");
+  background-image: url("../assets/img/data-points-graphic-small.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff; }
