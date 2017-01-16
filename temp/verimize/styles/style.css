@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,400");
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -5856,7 +5855,7 @@ button.close {
     margin-right: 40px; } }
 
 .home {
-  background-image: url("../img/Tel Aviv skyline dark 2.jpg");
+  background-image: url("/assets/img/skyline.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
@@ -5886,7 +5885,7 @@ button.close {
 /* TODO Improve this. */
 .about {
   padding-bottom: 20px;
-  background-image: url("../img/data-points-graphic-small.jpg");
+  background-image: url("/assets/img/data-points-graphic-small.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff; }
@@ -5896,8 +5895,10 @@ button.close {
       padding-bottom: 0; }
       .about .about-row.overview {
         margin-bottom: 700px; }
-      .about .about-header {
-        text-align: center; } }
+        .about .about-row.overview .about-header {
+          text-align: center; }
+          .about .about-row.overview .about-header p {
+            font-size: 30px; } }
   .about .about-row {
     margin-left: -15px;
     margin-right: -15px;
@@ -5927,6 +5928,8 @@ button.close {
           margin-left: 8.33333%; } }
       .about .about-row .about-header h1 {
         text-align: center; }
+      .about .about-row .about-header p {
+        font-size: 1.5em; }
     .about .about-row .image-container {
       position: relative;
       min-height: 1px;
@@ -6125,5 +6128,3 @@ div.dark-text {
   box-shadow: inherit;
   padding: inherit;
   vertical-align: inherit; }
-
-/*# sourceMappingURL=style.css.map */
