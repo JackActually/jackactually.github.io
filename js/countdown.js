@@ -1,7 +1,7 @@
 var ticktime = 1000;
 var barposition = 240;
 var barheight = 120;
-var enddate = new Date(2019,5,27,20,35,0);
+var enddate = new Date(2019,9,30,12,0,0);
 var positions=new Array(10);
 
 // Calculate the positions to move digits into based on the position of the time bar.
